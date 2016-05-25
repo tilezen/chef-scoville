@@ -14,3 +14,11 @@ default[:scoville][:user][:enabled]              = true
 default[:scoville][:revision][:scoville] = 'master'
 
 default[:scoville][:runit][:timeout]        = 60
+
+# scoville config
+default[:scoville][:database]         = 'dbname=scoville'
+default[:scoville][:mapzen][:api_key] = 'YOUR_API_KEY_HERE'
+default[:scoville][:mapzen][:host]    = 'localhost'
+default[:scoville][:region]           = 'local'
+default[:scoville][:run_interval]     = 60
+default[:scoville][:tiles]            = ''
