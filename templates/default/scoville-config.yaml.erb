@@ -1,0 +1,22 @@
+# database connection string to Redshift to export the statistics
+database: <%= node[:scoville][:database] %>
+
+# configuration of where to find the provider (at the time of writing, only
+# mapzen is supported) tiles.
+mapzen:
+  host: <%= node[:scoville][:mapzen][:host] %>
+  api_key: <%= node[:scoville][:mapzen][:api_key] %>
+
+# interval in seconds between grabbing a tile
+run_interval: <%= node[:scoville][:run_interval] %>
+
+# logging configuration - see logging.example.conf for an example
+logging_config: <%= node[:scoville][:logging_file] %>
+
+# URL or file name of a list of tiles with counts to use to create a realistic
+# stream of tile coordinates. the file should be zoom, x, y, count separated by
+# pipe characters "|".
+tiles: <%= node[:scoville][:tiles] %>
+
+# string description of the region to use when annotating statistics.
+region: <%= node[:scoville][:region] %>

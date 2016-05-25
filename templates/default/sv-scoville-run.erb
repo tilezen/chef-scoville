@@ -1,0 +1,5 @@
+#!/bin/bash
+
+exec 2>&1
+exec chpst -u <%= node[:scoville][:user][:user] %> \
+     scoville <%= node[:scoville][:cfg_path] + "/" + node[:scoville][:cfg_file] %>
