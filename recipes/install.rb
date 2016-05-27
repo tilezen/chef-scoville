@@ -16,5 +16,5 @@ template "#{node[:scoville][:cfg_path]}/#{node[:scoville][:logging_file]}" do
 end
 
 execute 'pip_install' do
-  command "pip install -U -r git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
+  command "pip install git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
 end
