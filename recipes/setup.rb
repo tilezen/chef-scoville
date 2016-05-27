@@ -18,6 +18,9 @@ end
 %w(
   python
   python-pip
+  python-shapely
+  python-pycurl
+  python-psycopg2
 ).each do |p|
   package p
 end
