@@ -17,7 +17,12 @@ template "#{node[:scoville][:cfg_path]}/#{node[:scoville][:logging_file]}" do
   notifies :restart, 'runit_service[scoville]', :delayed
 end
 
+execute 'pip_install_nodeps' do
+  command "pip install --upgrade --no-deps git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
+  notifies :restart, 'runit_service[scoville]', :delayed
+end
+
 execute 'pip_install' do
-  command "pip install -U git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
+  command "pip install git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
   notifies :restart, 'runit_service[scoville]', :delayed
 end
