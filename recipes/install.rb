@@ -9,12 +9,15 @@
 
 template "#{node[:scoville][:cfg_path]}/#{node[:scoville][:cfg_file]}" do
   source 'scoville-config.yaml.erb'
+  notifies :restart, 'runit_service[scoville]', :delayed
 end
 
 template "#{node[:scoville][:cfg_path]}/#{node[:scoville][:logging_file]}" do
   source 'scoville-logging.conf.erb'
+  notifies :restart, 'runit_service[scoville]', :delayed
 end
 
 execute 'pip_install' do
   command "pip install git+https://github.com/tilezen/scoville@#{node[:scoville][:revision][:scoville]}#egg=scoville"
+  notifies :restart, 'runit_service[scoville]', :delayed
 end
