@@ -17,8 +17,11 @@ default[:scoville][:runit][:timeout]        = 60
 
 # scoville config
 default[:scoville][:database]         = 'dbname=scoville'
-default[:scoville][:mapzen][:api_key] = 'YOUR_API_KEY_HERE'
-default[:scoville][:mapzen][:host]    = 'localhost'
+default[:scoville][:providers]        = {}
 default[:scoville][:region]           = 'local'
 default[:scoville][:run_interval]     = 60
 default[:scoville][:tiles]            = ''
+
+# providers example:
+# default[:scoville][:providers][:mapzen][:api_key] = 'YOUR_API_KEY_HERE'
+# default[:scoville][:providers][:mapzen][:host]    = 'localhost'

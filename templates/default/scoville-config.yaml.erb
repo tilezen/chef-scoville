@@ -1,11 +1,10 @@
 # database connection string to Redshift to export the statistics
 database: <%= node[:scoville][:database] %>
 
-# configuration of where to find the provider (at the time of writing, only
-# mapzen is supported) tiles.
-mapzen:
-  host: <%= node[:scoville][:mapzen][:host] %>
-  api_key: <%= node[:scoville][:mapzen][:api_key] %>
+# configuration of where to find the provider(s) tiles.
+<% node[:scoville][:providers].each do |provider, config| -%>
+<%= provider %>: <%= config.to_json %>
+<% end %>
 
 # interval in seconds between grabbing a tile
 run_interval: <%= node[:scoville][:run_interval] %>
