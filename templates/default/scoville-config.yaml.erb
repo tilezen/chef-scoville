@@ -1,9 +1,10 @@
 # database connection string to Redshift to export the statistics
 database: <%= node[:scoville][:database] %>
 
-# configuration of where to find the provider(s) tiles.
+providers:
+  # configuration of where to find the provider(s) tiles.
 <% node[:scoville][:providers].each do |provider, config| -%>
-<%= provider %>: <%= config.to_json %>
+  <%= provider %>: <%= config.to_json %>
 <% end %>
 
 # interval in seconds between grabbing a tile
